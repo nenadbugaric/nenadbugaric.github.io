@@ -7,6 +7,3 @@ gulp.task('sass', function(){
         //.pipe(sass({ sourceComments: 'map' }))
         .pipe(gulp.dest('assets/css'));
 });
-
-gulp.task('default', function() {
-});

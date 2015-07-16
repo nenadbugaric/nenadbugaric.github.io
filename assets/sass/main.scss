@@ -1,10 +1,10 @@
 @import '_reset';
 @import '_variables';
 
-@mixin box-shadow() {
-  -webkit-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow:    0px -2px 2px 0px rgba(0, 0, 0, 0.3);
-  box-shadow:         0px -2px 2px 0px rgba(0, 0, 0, 0.3);
+@mixin box-shadow($size) {
+  -webkit-box-shadow: 0px -$size $size 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow:    0px -$size $size 0px rgba(0, 0, 0, 0.3);
+  box-shadow:         0px -$size $size 0px rgba(0, 0, 0, 0.3);
 }
 
 @mixin fixed-bg() {
@@ -13,6 +13,14 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+@mixin nav-btn-transform($size, $angle) {
+  -ms-transform: translate(0px,$size) rotate($angle);
+  -webkit-transform: stranslate(0px,$size) rotate($angle);
+  -moz-transform: translate(0px,$size) rotate($angle);
+  -o-transform: translate(0px,$size) rotate($angle); 
+  transform: translate(0px,$size) rotate($angle);
 }
 
 @font-face {
@@ -70,7 +78,7 @@ header{
       border-radius: 115px;
       float: left;
       margin-bottom: 20px;
-      @include box-shadow();
+      @include box-shadow(2px);
     }
 
     h1{
@@ -96,3 +104,90 @@ header{
   }
 }
 
+/*----------------------------
+        Navigation
+------------------------------*/
+nav{
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 30px 0;
+  -ms-transition: background .4s; 
+  -webkit-transition: background .4s; 
+  -moz-transition: background .4s; 
+  -o-transition: background .4s;
+  transition: background .4s;
+  
+  .nav-content-wrapp{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1100px;
+    overflow: hidden;
+    
+    .nav-list{
+      float: left;
+      display: none;
+      -ms-transition: display .7s; 
+      -webkit-transition: display .7s; 
+      -moz-transition: display .7s; 
+      -o-transition: display .7s;
+      transition: display .7s;
+      
+      li{
+        padding-bottom: 20px;
+        
+        a{
+          font-size: 24px;
+          color: #fff;
+          font-family: "orgonSlab";
+          text-decoration: none;
+        }
+      }
+    }
+    .nav-list-show{
+      display: inline-block;
+    }
+
+    #nav-button{
+      width: 28px;
+      float: right;
+      display: block;
+      
+      span{
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        margin-bottom: 6px;
+        display: block;
+
+        -ms-transition: -ms-transform 1s, background 0.5s; 
+        -webkit-transition: -webkit-transform 1s, background 0.5s; 
+        -moz-transition: -moz-transform 1s, background 0.5s; 
+        -o-transition: -o-transform 1s, background 0.5s;
+        transition: transform 1s, background 0.5s;
+      }
+      .menu-to-close-first{
+        @include nav-btn-transform(9px, 45deg);
+      }
+      .menu-to-close-last{
+        @include nav-btn-transform(-7px, -45deg);
+      }
+      .box-shadow-none{
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+        background: none !important;
+      }
+    }
+  }
+}
+.nav-bg-color{
+  background-color: #00A9D2;
+}
+
+.active{
+  font-weight: 600;
+}

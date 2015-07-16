@@ -10,6 +10,23 @@
     <![endif]-->
   </head>
   <body onmouseover="">
+    <nav>
+      <div class="nav-content-wrapp">
+        <ul class="nav-list">
+          <li><a href="#home" class="active" onclick="app.nav.navPerformed()">Home</a></li>
+          <li><a href="#about" onclick="app.nav.toggleNav()">Who Am I</a></li>
+          <li><a href="#projects" onclick="app.nav.toggleNav()">Projects</a></li>
+          <li><a href="#skillset" onclick="app.nav.toggleNav()">Skillset</a></li>
+          <li><a href="#contact" onclick="app.nav.toggleNav()">Contact</a></li>
+        </ul>
+        
+        <a id="nav-button" onclick="app.nav.toggleNav()" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+    </nav>
 
     <div class="wrapper">
       <header id="home">
@@ -21,7 +38,6 @@
       </header>
     </div>
 
-  <div style="width: 100%; height: 1000px;"></div>
-
+  <script type="text/javascript" src="assets/js/app.js"></script>
   </body>
 </html>
