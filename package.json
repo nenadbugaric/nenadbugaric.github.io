@@ -1,0 +1,34 @@
+{
+  "name": "nenadbugaric.github.io",
+  "version": "1.0.0",
+  "description": "Personal website for Nenad Bugaric",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nenadbugaric/nenadbugaric.github.io"
+  },
+  "keywords": [
+    "web",
+    "developer",
+    "fullstack",
+    "front-end",
+    "back-end",
+    "nenad",
+    "bugaric",
+    "nenadbugaric"
+  ],
+  "author": "Nenad Bugaric",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nenadbugaric/nenadbugaric.github.io/issues"
+  },
+  "homepage": "https://github.com/nenadbugaric/nenadbugaric.github.io",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4"
+  }
+}
