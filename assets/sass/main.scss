@@ -250,7 +250,6 @@ section{
     .section-title-description{
       font-size: 16px;
       font-weight: 600;
-      padding-top: 16px;
     }
 
     @media #{$medium-device} {
@@ -371,4 +370,30 @@ article{
 }
 article:nth-child(3n+2){
   margin-right: 0; 
+}
+@media #{$medium-device} {
+  .projects-bg{
+    background-attachment: initial;
+  }
+  article{
+    width: 46%;
+    margin-right: 8%;
+  }
+  article:nth-child(3n+2){
+    margin-right: 8%; 
+  }
+  article:nth-child(even){
+    margin-right: 0; 
+  }
+}
+@media #{$small-device} {
+  article{
+    width: 100%;
+  }
+  article:nth-child(3n+2){
+    margin-right: 0; 
+  }
+  article:nth-child(even){
+    margin-right: 0; 
+  }
 }
