@@ -371,6 +371,7 @@ article{
 article:nth-child(3n+2){
   margin-right: 0; 
 }
+
 @media #{$medium-device} {
   .projects-bg{
     background-attachment: initial;
@@ -386,6 +387,7 @@ article:nth-child(3n+2){
     margin-right: 0; 
   }
 }
+
 @media #{$small-device} {
   article{
     width: 100%;
@@ -441,5 +443,30 @@ dl{
   }
   dd{
     padding-left: 10%;
+  }
+}
+
+@media #{$medium-device} {
+  dl{
+    font-size: 20px;
+  }
+}
+
+@media #{$small-device} {
+  .category{
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  dl{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 30px;
+    
+    dt,dd{
+      .skillset-skill{
+        padding-top: 22px;
+      }
+    }
   }
 }
