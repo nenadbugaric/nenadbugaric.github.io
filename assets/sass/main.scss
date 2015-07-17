@@ -1,10 +1,10 @@
 @import '_reset';
 @import '_variables';
 
-@mixin box-shadow($size) {
-  -webkit-box-shadow: 0px -$size $size 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow:    0px -$size $size 0px rgba(0, 0, 0, 0.3);
-  box-shadow:         0px -$size $size 0px rgba(0, 0, 0, 0.3);
+@mixin box-shadow($val1, $val2) {
+  -webkit-box-shadow: 0px $val1 $val2 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow:    0px $val1 $val2 0px rgba(0, 0, 0, 0.3);
+  box-shadow:         0px $val1 $val2 0px rgba(0, 0, 0, 0.3);
 }
 
 @mixin fixed-bg() {
@@ -81,7 +81,7 @@ header{
       border-radius: 115px;
       float: left;
       margin-bottom: 20px;
-      @include box-shadow(2px);
+      @include box-shadow(-2px, 2px);
     }
 
     h1{
@@ -174,7 +174,7 @@ nav{
         a{
           font-size: 24px;
           color: #fff;
-          font-family: "orgonSlab";
+          font-family: $main-font;
           text-decoration: none;
         }
       }
@@ -222,4 +222,65 @@ nav{
 
 .active{
   font-weight: 600;
+}
+
+
+/*----------------------------
+        Section
+------------------------------*/
+section{
+  width: 100%;
+  z-index: 1;
+  padding: 50px 0;
+  
+  .section-content{
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    
+    h2 {
+      font-size: 100px;
+      font-weight: 700;
+      text-transform: uppercase;
+      //text-decoration: underline;
+      text-shadow: 0px -2px 2px rgba(0, 0, 0, 0.3);
+      padding-top: 2px;
+    }
+    .section-title-description{
+      font-size: 16px;
+      font-weight: 600;
+      padding-top: 16px;
+    }
+
+    @media #{$medium-device} {
+      h2{
+        font-size: 72px;
+      }
+    }
+    @media #{$small-device} {
+      h2{
+        font-size: 13vw;
+      }
+    }
+  }
+}
+.section-blue{
+  background: linear-gradient(rgba(0,168,208,.5), rgba(0,168,208,.8)), url(../images/background-photo.jpg);
+  @include box-shadow(-2px, 2px);
+}
+
+/*----------------------------
+        Who Am I?
+------------------------------*/
+
+.about-text{
+  width: 100%;
+  font-size: 20px;
+  overflow: hidden;
+  margin: 40px 0 80px;
+  
+  p{
+    margin-bottom: 20px;
+  }
 }
