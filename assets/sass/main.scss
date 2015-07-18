@@ -470,3 +470,27 @@ dl{
     }
   }
 }
+
+/*----------------------------
+        Contact Me
+------------------------------*/
+@media  #{$medium-device} {
+  dl{
+    font-size: 20px;
+  }
+}
+@media  #{$small-device} {
+  .category{
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  dl{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 30px;
+  }
+  .skillset-skill{
+    padding-top: 22px;
+  }
+}
