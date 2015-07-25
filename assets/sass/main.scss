@@ -265,6 +265,9 @@ section{
     }
   }
 }
+section:nth-child(5){
+  padding-bottom: 140px;
+}
 .section-blue{
   background: linear-gradient(rgba(0,168,208,.5), rgba(0,168,208,.8)), url(../images/background-photo.jpg);
   @include box-shadow(-2px, 2px);
@@ -533,5 +536,49 @@ dl{
   }
   .skillset-skill{
     padding-top: 22px;
+  }
+}
+
+/*----------------------------
+        Footer
+------------------------------*/
+footer{
+  width: 100%;
+  background: #00A8D0;
+  @include box-shadow(-2px, 2px);
+
+  .footer-content{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1100px;
+    overflow: hidden;
+
+    span{
+      float: left;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 16px 0 0;
+    }
+
+    ul{
+      float: right;
+      padding: 16px 0;
+
+      li{
+        float: left;
+        margin-right: 20px;
+
+        a{
+          display: inline-block;
+          text-decoration: none;
+          color: #eee;
+        }
+        a:hover{
+          text-decoration: underline;
+          color: #fff;
+        }
+      }
+    }
   }
 }
