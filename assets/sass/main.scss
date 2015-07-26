@@ -266,7 +266,7 @@ section{
   }
 }
 section:nth-child(5){
-  padding-bottom: 140px;
+  padding-bottom: 160px;
 }
 .section-blue{
   background: linear-gradient(rgba(0,168,208,.5), rgba(0,168,208,.8)), url(../images/background-photo.jpg);
@@ -285,6 +285,7 @@ section:nth-child(5){
   
   p{
     margin-bottom: 20px;
+    line-height: 1.5;
   }
 }
 
