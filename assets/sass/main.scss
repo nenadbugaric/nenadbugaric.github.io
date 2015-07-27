@@ -25,7 +25,11 @@
 
 @font-face {
   font-family: $main-font;
-  src: url(../fonts/OrgonSlab/Orgon-Slab.otf);
+  src: url('../fonts/orgon_slab-webfont.eot');
+  src: url('../fonts/orgon_slab-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/orgon_slab-webfont.woff') format('woff'),
+       url('../fonts/orgon_slab-webfont.ttf') format('truetype'),
+       url('../fonts/orgon_slab-webfont.svg#webfont') format('svg');
 }
 
 body, html {
