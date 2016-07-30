@@ -261,6 +261,11 @@ section{
       font-weight: 600;
       line-height: 1.5;
     }
+    .section-spacer {
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+      margin-bottom: 80px;
+    }
 
     @media #{$medium-device} {
       h2{
