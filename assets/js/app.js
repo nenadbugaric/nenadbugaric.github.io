@@ -1,69 +1,84 @@
-var app = {}; // whole application namespace
+// whole application namespace
+var app = {};
 
-app.nav = {}; // navigation object
+// navigation module
+app.nav = (function() {
+  var navigationShown = false;
 
-app.nav.state = false; // true if menu is visible
+  var $navigationElements = {
+    nav: document.getElementsByTagName('nav')[0],
+    menu: document.getElementsByClassName('nav-list')[0],
+    buttonLines: { 
+      first: document.getElementById('nav-button').children[0], 
+      middle: document.getElementById('nav-button').children[1], 
+      last: document.getElementById('nav-button').children[2]
+    }
+  };
 
-// show/hidde navigation
-app.nav.toggleNav = function(){
-  
-  // set new state (show if hidden and vise versa)
-  if(app.nav.state){
-    app.nav.state = false;
-  } 
-  else {
-    app.nav.state = true;
+  function toggleNav() {
+    navigationShown = !navigationShown;
+
+    transformButtonLookToHamburgerOrClose();
+    transformNavigationMenuLooks();
+  };
+
+  function closeNav() {
+    navigationShown = false;
+    toggleNav();
   }
 
-  // change button using animation
-  app.nav.transformButton(app.nav.state);
-  // show/hide menu and change background
-  app.nav.transformMenuList(app.nav.state);
-};
-
-// animate button from one state to other
-app.nav.transformButton = function(newState){
-  var btn = document.getElementById('nav-button');
-  var first = btn.children[0];
-  var middle = btn.children[1];
-  var last = btn.children[2];
-
-  // menu to close
-  if (newState) {
-    first.className = "menu-to-close-first";
-    middle.style.background = "none";
-    last.className = "menu-to-close-last";
+  function isNavigationShown() {
+    return navigationShown;
   }
-  // close to menu
-  else {
-    first.className = "";
-    middle.style.background = "#fff";
-    last.className = "";
-  }
-};
 
-// show/hide menu list and bg depending of state
-app.nav.transformMenuList = function(newState){
-  var nav = document.getElementsByTagName('nav')[0];
-  var menu = document.getElementsByClassName('nav-list')[0];
+  function transformButtonLookToHamburgerOrClose() {
+    if (isNavigationShown()) {
+      transformToCloseButton();
+    } else {
+      transformToHamburgerButton();
+    }
+  };
 
-  // change bg and show menu
-  if ( newState ){
-    nav.className = "nav-bg-color";
-    menu.className = menu.className + " nav-list-show";
+  function transformToCloseButton() {
+    $navigationElements.buttonLines.first.className = "menu-to-close-first";
+    $navigationElements.buttonLines.middle.style.background = "none";
+    $navigationElements.buttonLines.last.className = "menu-to-close-last";
   }
-  // set transparent bg and hide menu
-  else {
-    nav.className = "";
-    menu.className = "nav-list";
-  }
-};
 
-// detect if "esc" is pressed and close nav
+  function transformToHamburgerButton() {
+    $navigationElements.buttonLines.first.className = "";
+    $navigationElements.buttonLines.middle.style.background = "#fff";
+    $navigationElements.buttonLines.last.className = "";
+  }
+
+  function transformNavigationMenuLooks() {
+    if (isNavigationShown()){
+      transformNavStyleForOpenedNav();
+    } else {
+      transformNavStyleForClosedNav();
+    }
+  };
+
+  function transformNavStyleForOpenedNav() {
+    $navigationElements.nav.className = "nav-bg-color";
+    $navigationElements.menu.className = $navigationElements.menu.className + " nav-list-show";
+  };
+
+  function transformNavStyleForClosedNav() {
+    $navigationElements.nav.className = "";
+    $navigationElements.menu.className = "nav-list";
+  };
+
+  return {
+    toggleNav: toggleNav,
+    isNavigationShown: isNavigationShown
+  };
+}());
+
 document.onkeydown = function (e) {
     e = e || window.event;
-
-    if (app.nav.state) {
+    
+    if (e.key === "Escape" && app.nav.isNavigationShown()) {
       app.nav.toggleNav();
     }
 };
