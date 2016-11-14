@@ -1,3 +1,5 @@
+"use strict";
+
 // whole application namespace
 var app = {};
 
