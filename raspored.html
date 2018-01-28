@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function izracunaj() {
+            const employees = [
+                "Slavica Mihajlov",
+                "Marko Radulović",
+                "Rajko Krga",
+                "Ivana Simanović",
+                "Dejan Bogdanović",
+                "Danijela Ristić",
+                "Slobodanka Perović",
+                "Andreja Ivanov",
+                "Lazar Stojanović",
+                "Milica Janković",
+                "Sanja Lasković",
+                "Nina Mandić",
+                "Ljiljana Veselinović",
+            ];
+            
+            const bolovanje = ["Jelena Đurić"];
+            
+            const lastThree = [
+                "Elvira Đermanović",
+                "Bojana Ivković",
+                "Janko Topalović"
+            ]
+            
+            function shuffle(array) {
+                var currentIndex = array.length, temporaryValue, randomIndex;
+            
+                while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+                }
+            
+                return array;
+            }
+            
+            let finalList = shuffle(employees).concat(lastThree);
+            
+            finalList.splice(5, 0, "Jelena Đurić");
+
+            let root = document.getElementById("root");
+            root.innerHTML = "";
+
+            for (const employee of finalList) {
+                root.innerHTML += "<br>" + employee;
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="izracunaj();">Izracunaj</button>
+    <div id="root"></div>
+</body>
+</html>
